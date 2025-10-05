@@ -50,6 +50,11 @@ const organizers = [
     institution:  "Cornell University",
     imageUrl: "/images/organizers/linxi.jpg",
   },
+  {
+    name: "Jeremiah Milbauer",
+    institution:  "Carnegie Mellon University",
+    imageUrl: "/images/organizers/jeremiah.jpg",
+  },
  {
     name: "Yisong Yue",
     institution:  "Caltech",
@@ -60,7 +65,6 @@ const organizers = [
     institution:  "University of Pennsyvania",
     imageUrl: "/images/organizers/mark.jpg",
   },
-
  {
     name: "Jake Gardner",
     institution:  "University of Pennsyvania",
@@ -76,11 +80,6 @@ const organizers = [
     name: "Pang Wei Koh",
     institution: "University of Washington",
     imageUrl: "/images/organizers/pangwei.jpg",
-  },
-  {
-    name: "Diyi Yang",
-    institution: "Stanford University",
-    imageUrl: "/images/organizers/diyi.jpg",
   },
   {
     name: "Tatsunori Hashimoto",
