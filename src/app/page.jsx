@@ -38,7 +38,7 @@ export default function IndexPage() {
                 <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                   <div className="rounded-md shadow">
                     <a
-                      href="/docs"
+                      href="/docs/2026"
                       className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
                     >
                       Workshop Details
@@ -46,7 +46,7 @@ export default function IndexPage() {
                   </div>
                   <div className="mt-3 sm:mt-0 sm:ml-3">
                     <a
-                      href="/docs/call-for-papers"
+                      href="/docs/2026/call-for-papers"
                       className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 md:px-10 md:text-lg"
                     >
                       Call for Papers
@@ -61,13 +61,13 @@ export default function IndexPage() {
           <div className="h-56 w-full bg-indigo-900 sm:h-72 md:h-96 lg:h-full lg:w-full">
             <div className="flex h-full items-center justify-center">
               <div className="p-8 text-center text-white">
-                <div className="text-5xl font-bold mb-4">LM4Sci 2025</div>
+                <div className="text-5xl font-bold mb-4">LM4Sci 2026</div>
                 <div className="text-2xl mb-6">
                   LLM for Scientific Discovery
                 </div>
-                <div className="text-xl opacity-80">Date: October 10, 2025</div>
+                <div className="text-xl opacity-80">Date: October 9, 2026</div>
                 <div className="text-xl opacity-80">
-                  Location: Montreal, Canada (co-located with COLM '25)
+                  Location: San Francisco, USA (co-located with COLM '26)
                 </div>
               </div>
             </div>
@@ -276,7 +276,7 @@ export default function IndexPage() {
             the future of science and human-AI interaction.
           </p>
           <a
-            href="/docs/call-for-papers"
+            href="/docs/2026/call-for-papers"
             className="mt-8 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-indigo-600 hover:bg-indigo-50 sm:w-auto"
           >
             Submit Your Paper
@@ -352,7 +352,7 @@ export default function IndexPage() {
           </p>
           <div className="text-center mt-8">
             <a
-              href="/docs/schedule"
+              href="/docs/2026/schedule"
               className="text-indigo-600 hover:text-indigo-800 font-medium"
             >
               View Complete Schedule →
@@ -374,7 +374,7 @@ export default function IndexPage() {
                   Submission Deadline
                 </h3>
                 <div className="mt-2 text-3xl font-bold text-indigo-600">
-                  June 30, 2025
+                  TBD
                 </div>
               </div>
               <div className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-sm">
@@ -382,7 +382,7 @@ export default function IndexPage() {
                   Notification
                 </h3>
                 <div className="mt-2 text-3xl font-bold text-indigo-600">
-                  July 24, 2025 
+                  TBD
                 </div>
               </div>
               <div className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-sm">
@@ -390,16 +390,36 @@ export default function IndexPage() {
                   Camera-Ready
                 </h3>
                 <div className="mt-2 text-3xl font-bold text-indigo-600">
-		Aug 7, 2025                
-                  </div>
+                  TBD
+                </div>
               </div>
               <div className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-sm">
                 <h3 className="text-lg font-medium text-gray-900">Workshop</h3>
                 <div className="mt-2 text-3xl font-bold text-indigo-600">
-                  Oct 10, 2025
+                  Oct 9, 2026
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Past Editions Section */}
+      <div className="bg-white py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 mb-8">
+            Past Editions
+          </h2>
+          <div className="flex justify-center">
+            <a
+              href="/docs/2025"
+              className="rounded-lg border border-gray-200 bg-gray-50 p-6 text-center shadow-sm hover:shadow-md transition-shadow max-w-xs w-full"
+            >
+              <div className="text-2xl font-bold text-indigo-600 mb-2">LM4Sci 2025</div>
+              <div className="text-gray-500">October 10, 2025</div>
+              <div className="text-gray-500">Montreal, Canada</div>
+              <div className="mt-3 text-indigo-600 font-medium">View Archive →</div>
+            </a>
           </div>
         </div>
       </div>
