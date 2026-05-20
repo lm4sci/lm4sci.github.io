@@ -310,35 +310,8 @@ export default function IndexPage() {
               </thead>
               <tbody className="divide-y divide-gray-200 bg-white">
                 <tr>
-                  <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
-                    09:00 - 10:50
-                  </td>
-                  <td className="px-3 py-4 text-sm text-gray-500">
-                    Keynote Speeches (3 speakers)
-                  </td>
-                </tr>
-                <tr>
-                  <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
-                    11:05 - 12:00
-                  </td>
-                  <td className="px-3 py-4 text-sm text-gray-500">
-                    Oral Presentations
-                  </td>
-                </tr>
-                <tr>
-                  <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
-                    13:00 - 14:45
-                  </td>
-                  <td className="px-3 py-4 text-sm text-gray-500">
-                    Keynote Speeches (3 speakers) & Panel Discussion
-                  </td>
-                </tr>
-                <tr>
-                  <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
-                    15:30 - 17:00
-                  </td>
-                  <td className="px-3 py-4 text-sm text-gray-500">
-                    Poster Session / Shared Task
+                  <td colSpan={2} className="py-8 text-center text-sm text-gray-500">
+                    The 2026 schedule will be announced closer to the workshop date.
                   </td>
                 </tr>
               </tbody>
