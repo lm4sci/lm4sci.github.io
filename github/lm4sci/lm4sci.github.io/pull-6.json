@@ -1,0 +1,234 @@
+{
+  "author": {
+    "is_bot": true,
+    "login": "app/sepo-agent-app"
+  },
+  "baseRefName": "main",
+  "body": "## Summary\n\n- Moves all existing workshop content into `src/content/2025/` so it becomes accessible at `/docs/2025/*`\n- Creates minimal `src/content/2026/` stubs (Coming Soon) for the new default year, dated October 9, 2026 in San Francisco co-located with COLM '26\n- Updates `src/content/_meta.js` to route by year (2026 first)\n- Updates landing page (`src/app/page.jsx`):\n  - Hero panel now shows **LM4Sci 2026** with COLM '26 date/location\n  - All `/docs` and `/docs/call-for-papers` links updated to `/docs/2026/…`\n  - Important Dates updated to TBD (Oct 9, 2026 workshop date filled in)\n  - Adds a **Past Editions** section linking to the 2025 archive\n\n## Test plan\n\n- [ ] `/docs/2025` loads the archived 2025 overview\n- [ ] `/docs/2026` loads the 2026 stub overview\n- [ ] Landing page hero shows LM4Sci 2026 with correct date/location\n- [ ] Landing page Past Editions card links to `/docs/2025`\n- [ ] All CTA and schedule links on landing page go to `/docs/2026/…`\n\nCloses #5\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDOOY8Xus8AAAABC_2_ag",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "Sepo is dispatching follow-up automation.\n\n| Source | Next | Target | Round | Status |\n| --- | --- | --- | --- | --- |\n| implement | review | PR #6 | 3 / 12 | Dispatched |\n\nReason: agent planner selected review: Implementation succeeded and produced PR #6. Handing off to review for analysis.\n\n<!-- sepo-agent-handoff state:dispatched created:1779265162198 base64:aGFuZG9mZjpsbTRzY2kvbG00c2NpLmdpdGh1Yi5pbzoyNjE1MDIwNDYxMzppbXBsZW1lbnQ6NTpyZXZpZXc6Njoz -->",
+      "createdAt": "2026-05-20T08:19:22Z",
+      "includesCreatedEdit": true,
+      "isMinimized": true,
+      "minimizedReason": "outdated",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/pull/6#issuecomment-4496146282",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABC_31NQ",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "The `agent/rubrics` branch does not exist for this repository, and memory confirms rubrics have not yet been initialized. Per the rubric review format, I'll return N/A.\n\n## Rubrics Review\n\n| Total Score | Verdict | Rubrics Scored |\n| -- | -- | -- |\n| N/A | N/A | 0 |\n\n| Dimension | Rubric | Result | Score | Evidence |\n| -- | -- | -- | -- | -- |\n| — | — | not applicable | N/A | No rubrics branch (`agent/rubrics`) exists for this repository |\n\n## Notes\n\n- No rubrics have been initialized for `lm4sci/lm4sci.github.io`. The `agent/rubrics` branch is absent and PROJECT.md confirms \"Rubrics: not yet initialized.\"\n- To enable rubric-based reviews, initialize rubrics via the dedicated rubrics workflow. Once the branch exists, future review runs will score against the active rubric set.\n\n## Findings\n\n- **INFO:** No rubrics are configured for this repository. This review cannot score against user/team preferences until rubrics are initialized.\n\n## Final Rubric Verdict\n\nN/A",
+      "createdAt": "2026-05-20T08:20:57Z",
+      "includesCreatedEdit": false,
+      "isMinimized": true,
+      "minimizedReason": "outdated",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/pull/6#issuecomment-4496160053",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABC_6YNg",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "## AI Review Synthesis\n\n<!-- sepo-agent-review-synthesis -->\n<!-- sepo-agent-review-synthesis-head: eb5699ba24c176ccd41a227f63f757384d5a0a84 -->\n\n> Dual-agent review by **Claude** and **Codex**.\n> Requested by @lolipopshock.\n\nBoth findings are confirmed. `src/app/_meta.js` is not in the PR diff so I cannot post inline comments; both blocking/warning findings reference unchanged files or unchanged lines. The synthesis follows.\n\n---\n\n## Summary of PR/Issue\n\n- Migrates all existing workshop content into `src/content/2025/` so it becomes accessible at `/docs/2025/*`, archiving the 2025 edition.\n- Creates minimal \"Coming Soon\" stubs under `src/content/2026/` and makes 2026 the default year in `src/content/_meta.js`.\n- Updates the landing page (`src/app/page.jsx`) to show LM4Sci 2026, set Important Dates to TBD, update all CTA links to `/docs/2026/…`, and add a Past Editions section.\n- Closes issue #5 (year-based versioning for the recurring workshop site).\n- The overall approach is correct and idiomatic for a Nextra-based recurring conference site.\n\n## Review\n\nThe year-based versioning design is well-executed and the 2026 stubs are appropriately minimal. However, one blocking regression was introduced: the site nav bar's \"Workshop Details\" link points to `/docs`, which no longer has a generated page in the static export after this PR moves `index.mdx` into `src/content/2025/`. A one-line fix to `src/app/_meta.js` is required before merging.\n\n| Issue | Severity | Description |\n| -- | -- | -- |\n| Nav \"Workshop Details\" link will 404 | BLOCKING | `src/app/_meta.js` routes the nav item to `/docs`, but that route has no page in the static export post-move; `href: '/docs/2026'` must be added. |\n| Stale 2025 schedule table on 2026 landing page | WARNING | The \"Schedule Highlights\" section in `page.jsx` still shows hardcoded 2025 time slots while the hero and Important Dates already say 2026/TBD; creates misleading mixed-year content. |\n| Old top-level `/docs/*` URLs will 404 | WARNING | Paths like `/docs/call-for-papers`, `/docs/schedule`, `/docs/faq`, `/docs/organizers` no longer exist; external links from email announcements or submission systems will silently break. |\n| Missing trailing newline in `src/content/2025/_meta.js` | INFO | `src/content/2025/_meta.js` lacks an EOF newline, inconsistent with `2026/_meta.js`. |\n| COLM 2026 date consistency | INFO | All three locations (page.jsx, index.mdx, schedule.mdx) agree on Oct 9, 2026 / San Francisco. No action needed. |\n\n## Progress\n\n- Year-namespaced content structure (`2025/`, `2026/`) and `_meta.js` routing are correctly implemented.\n- Landing page hero, Important Dates, and CTA links have all been updated to 2026.\n- Past Editions card linking to `/docs/2025` is in place.\n- Rubrics review is N/A (no `agent/rubrics` branch exists for this repository).\n- No existing inline review threads or comments on this PR.\n\n## Issue Details\n\n<details>\n<summary>Nav \"Workshop Details\" link will 404</summary>\n\n**Cause:** `src/app/_meta.js` declares `docs: { type: 'page', title: 'Workshop Details' }` with no `href` override, so the nav link resolves to `/docs`. Before this PR, `src/content/index.mdx` generated that page. After this PR, that file is `src/content/2025/index.mdx` and `src/content/_meta.js` contains only year-folder entries — `/docs` has no index and no static HTML file is emitted for it. Since `next.config.ts` uses `output: 'export'`, server-side redirects are not available.\n\n**Candidate solutions:**\n1. *(Recommended)* Add `href: '/docs/2026'` to the `docs` entry in `src/app/_meta.js` — one line, idiomatic Nextra.\n2. Add a thin `src/content/index.mdx` that client-side redirects to `/docs/2026` via a React component — more lines, less clean.\n\n**Comments:** This is the primary site navigation entry point and will break on every page load for every visitor.\n</details>\n\n<details>\n<summary>Stale 2025 schedule table on 2026 landing page</summary>\n\n**Cause:** The \"Schedule Highlights\" section in `page.jsx` (lines ~287–358, unchanged by this PR) still contains hardcoded 2025 agenda rows (09:00–10:50 Keynote, 11:05–12:00 Oral, etc.). The PR updated the hero and Important Dates to 2026/TBD but did not touch the schedule table.\n\n**Candidate solutions:**\n1. Replace the table rows with a single placeholder line matching the TBD treatment (\"The 2026 schedule will be announced closer to the workshop date.\").\n2. Remove the \"Schedule Highlights\" section entirely until real data is available.\n</details>\n\n<details>\n<summary>Old top-level /docs/* URLs will 404</summary>\n\n**Cause:** Content files at `src/content/call-for-papers.mdx`, `schedule.mdx`, `faq.mdx`, `organizers.mdx` have been renamed into `src/content/2025/`. The old routes (`/docs/call-for-papers`, etc.) will no longer be generated as static HTML. The `output: 'export'` setting rules out server-side redirects.\n\n**Candidate solutions:**\n1. Accept the breakage (these URLs served the 2025 edition's call for papers period; external references may be stale anyway).\n2. Add static redirect pages or Next.js `_redirects` workarounds (complex for a static export).\n\n**Comments:** For a workshop site this may be acceptable — the primary CTA links are already updated and the old URLs typically appeared in announcements targeting 2025 submitters. Evaluate based on whether those links appear in long-lived external indexes.\n</details>\n\n## Recommended Next Step\n\n`FIX_PR` — the BLOCKING nav 404 is a concrete, one-line branch change in `src/app/_meta.js` that is safe to automate; the stale schedule table is an adjacent cleanup that can be done in the same pass.\n\n## Final Verdict\n\n`NEEDS_REWORK`\n\n## Action Items\n\n- [ ] Add `href: '/docs/2026'` to the `docs` entry in `src/app/_meta.js` to fix the broken \"Workshop Details\" nav link.\n- [ ] Replace the hardcoded 2025 schedule rows in the \"Schedule Highlights\" section of `src/app/page.jsx` with a 2026 TBD placeholder.\n- [ ] (Optional) Add a trailing newline to `src/content/2025/_meta.js`.",
+      "createdAt": "2026-05-20T08:25:34Z",
+      "includesCreatedEdit": false,
+      "isMinimized": true,
+      "minimizedReason": "outdated",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/pull/6#issuecomment-4496201782",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABC_66Bg",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "Sepo is dispatching follow-up automation.\n\n| Source | Next | Target | Round | Status |\n| --- | --- | --- | --- | --- |\n| review | fix-pr | PR #6 | 4 / 12 | Dispatched |\n\nReason: agent planner selected fix-pr: Review concluded needs_rework with recommended next step fix_pr. Two concrete, automatable branch changes are required: fix the broken docs href in _meta.js and replace hardcoded 2025 schedule rows with a 2026 TBD placeholder.\n\nTask for fix-pr:\nAddress only the following action items from the latest review:\n\n1. In `src/app/_meta.js`, add `href: '/docs/2026'` to the `docs` entry so the \"Workshop Details\" nav link is not broken.\n2. In `src/app/page.jsx`, replace the hardcoded 2025 schedule rows in the \"Schedule Highlights\" section with a 2026 TBD placeholder (e.g., a single row or message saying schedule is coming soon).\n\nConstraints:\n- Do NOT touch the optional trailing newline in `src/content/2025/_meta.js` — it is optional and not required.\n- Do NOT make unrelated changes, metadata/label edits, or style cleanups.\n- Preserve all other existing content and structure.\n\n<!-- sepo-agent-handoff state:dispatched created:1779265599204 base64:aGFuZG9mZjpsbTRzY2kvbG00c2NpLmdpdGh1Yi5pbzoyNjE1MDQxOTEyMjpyZXZpZXc6NjpmaXhfcHI6Njo0 -->",
+      "createdAt": "2026-05-20T08:26:39Z",
+      "includesCreatedEdit": true,
+      "isMinimized": true,
+      "minimizedReason": "outdated",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/pull/6#issuecomment-4496210438",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABC_77TA",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "**Sepo pushed fixes for this PR.** Branch: `agent/implement-issue-5/claude-26150204613`. Requested by @sepo-agent.\n\n<!-- sepo-agent-fix-pr-status -->\n\n- Added `href: '/docs/2026'` to the `docs` entry in `src/app/_meta.js` — fixes the broken \"Workshop Details\" nav link (was resolving to `/docs` which has no static page post-migration).\n- Replaced the four hardcoded 2025 schedule rows in the \"Schedule Highlights\" table (`src/app/page.jsx`) with a single TBD placeholder cell: \"The 2026 schedule will be announced closer to the workshop date.\"",
+      "createdAt": "2026-05-20T08:28:20Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/pull/6#issuecomment-4496227148",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABC_8k5w",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "Sepo is dispatching follow-up automation.\n\n| Source | Next | Target | Round | Status |\n| --- | --- | --- | --- | --- |\n| fix-pr | review | PR #6 | 5 / 12 | Dispatched |\n\nReason: agent planner selected review: fix-pr succeeded on PR #6. Handing off to review to verify the year-based versioning implementation is correct and complete.\n\n<!-- sepo-agent-handoff state:dispatched created:1779265768993 base64:aGFuZG9mZjpsbTRzY2kvbG00c2NpLmdpdGh1Yi5pbzoyNjE1MDc2MDgzMjpmaXhfcHI6NjpyZXZpZXc6Njo1 -->",
+      "createdAt": "2026-05-20T08:29:29Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/pull/6#issuecomment-4496237799",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABC_9OSQ",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "No `agent/rubrics` branch exists (confirmed by empty `git ls-remote` output) and memory confirms \"Rubrics: not yet initialized.\" The prior rubrics review in round 3 already returned N/A for the same reason. The verdict is unchanged.\n\n---\n\n## Rubrics Review\n\n| Total Score | Verdict | Rubrics Scored |\n| -- | -- | -- |\n| N/A | N/A | 0 |\n\n| Dimension | Rubric | Result | Score | Evidence |\n| -- | -- | -- | -- | -- |\n| — | — | not applicable | N/A | No `agent/rubrics` branch exists for `lm4sci/lm4sci.github.io` |\n\n## Notes\n\n- No rubrics have been initialized for this repository. The `agent/rubrics` branch is absent and `PROJECT.md` confirms \"Rubrics: not yet initialized.\"\n- This is the second rubrics review pass (round 5); the result is the same as round 3 — N/A is the only valid verdict until rubrics are configured.\n- The PR itself is in good shape after the round-4 `fix-pr` pass: the blocking nav 404 (`_meta.js` href) and stale 2025 schedule table have both been addressed per the diff. No rubric-specific follow-up is possible without an active rubric set.\n\n## Findings\n\n- **INFO:** No rubrics are configured for this repository. To enable rubric-based scoring on future review runs, initialize rubrics via the dedicated rubrics workflow. Once the `agent/rubrics` branch exists, all subsequent reviews will score against the active rubric set.\n\n## Final Rubric Verdict\n\nN/A",
+      "createdAt": "2026-05-20T08:30:43Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/pull/6#issuecomment-4496248393",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABDABCYg",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "## AI Review Synthesis\n\n<!-- sepo-agent-review-synthesis -->\n<!-- sepo-agent-review-synthesis-head: 6cd92f50490040bf556e1c7e647e586b9d27204c -->\n\n> Dual-agent review by **Claude** and **Codex**.\n> Requested by @lolipopshock.\n\nNo existing inline review threads. The synthesis is ready.\n\n---\n\n## Summary of PR/Issue\n\n- Migrates all existing workshop content into `src/content/2025/` so the 2025 edition is accessible at `/docs/2025/*`, archiving it cleanly.\n- Creates minimal \"Coming Soon\" stubs under `src/content/2026/` and makes 2026 the default year in `src/content/_meta.js`.\n- Updates the landing page (`src/app/page.jsx`): hero now shows LM4Sci 2026, Important Dates are TBD (Oct 9 set for the workshop), CTAs point to `/docs/2026/…`, and a Past Editions card links to `/docs/2025`.\n- A prior `fix-pr` pass (round 4) resolved a BLOCKING nav 404 and replaced the stale 2025 schedule table; this synthesis evaluates the full diff at head `6cd92f50`.\n- Closes issue #5.\n\n## Review\n\nThe year-based versioning design is correct and idiomatic for a Nextra v4 static-export site; it scales cleanly to future editions. Both blocking issues from the previous review cycle are confirmed resolved. Remaining findings are limited to UX polish and low-impact edge cases that do not affect the happy path.\n\n| Issue | Severity | Description |\n| -- | -- | -- |\n| `/docs` bare route will 404 | WARNING | `src/content/index.mdx` was renamed into `src/content/2025/`; no MDX remains at the content root, so `/docs` generates no static HTML. Old bookmarks and search-indexed links will hit a GitHub Pages 404. In-site nav is unaffected (now correctly routed to `/docs/2026`). |\n| Stale \"tentative schedule\" note | INFO | The \"This schedule is tentative and subject to change. See the full schedule for details.\" text and \"View Complete Schedule →\" link remain below the new TBD placeholder row in `page.jsx`, contradicting it — no schedule exists yet to be tentative. |\n| \"Submit Your Paper\" label mismatch | INFO | The primary CTA button links to `/docs/2026/call-for-papers` (which says \"Coming soon\"), but \"Submit Your Paper\" implies an open submission system. |\n| Missing trailing newlines | INFO | `src/content/2025/_meta.js` (new file in this PR) and `src/app/_meta.js` (pre-existing) both lack a final newline. |\n| Stale dead comment in `src/app/_meta.js` | INFO | `// display: 'hidden'` remains on line 12 of `src/app/_meta.js`, unchanged by this PR; it is a leftover from an earlier exploration. |\n\n## Progress\n\n- **BLOCKING resolved** — Nav \"Workshop Details\" 404: `href: '/docs/2026'` added to `src/app/_meta.js`. ✅\n- **WARNING resolved** — Stale 2025 schedule rows in `page.jsx` replaced with a single TBD placeholder cell. ✅\n- All in-page CTA links updated from `/docs/…` to `/docs/2026/…`. ✅\n- Important Dates updated to TBD; Oct 9, 2026 workshop date set. ✅\n- Past Editions card added to landing page; links to `/docs/2025`. ✅\n- Date/location consistency confirmed: Oct 9, 2026 / San Francisco / COLM '26 is consistent across `page.jsx`, `src/content/2026/index.mdx`, and `src/content/2026/schedule.mdx`. ✅\n- Old top-level `/docs/call-for-papers`, `/docs/schedule`, etc. will 404 — assessed as acceptable; all in-page CTAs updated, external links are time-limited. ✅\n- No existing inline review threads or inline PR comments on this PR.\n- Rubrics review: N/A — no `agent/rubrics` branch exists for this repository.\n\n## Issue Details\n\n<details>\n<summary><code>/docs</code> bare route will 404</summary>\n\n**Cause:** `src/content/index.mdx` was renamed to `src/content/2025/index.mdx` and `src/content/_meta.js` now contains only year-folder keys (`2026`, `2025`). With `output: 'export'`, `generateStaticParamsFor('mdxPath')` will not produce `out/docs/index.html`. The primary in-site entry point is fixed (`href: '/docs/2026'` in `src/app/_meta.js`), so no navigation UI leads there anymore. The practical impact is limited to external links pointing directly at `/docs` (e.g., old search engine results, stale social posts).\n\n**Candidate solutions:**\n1. Accept as-is — practical impact is low; no in-site path remains. Team can monitor for 404s after merge.\n2. Add a thin `src/content/index.mdx` with a \"Content has moved\" message linking to `/docs/2026` and `/docs/2025`.\n3. Not suitable for `next.config.ts` `redirects()` since `output: 'export'` only supports client-side navigation.\n\n**Comments:** Whether to add a stub is a product judgment call. Worth a follow-up issue if search-indexed `/docs` traffic is meaningful.\n</details>\n\n<details>\n<summary>Stale \"tentative schedule\" note</summary>\n\n**Cause:** The paragraph reading \"Note: This schedule is tentative and subject to change. See the full schedule for details.\" and the \"View Complete Schedule →\" anchor (href updated to `/docs/2026/schedule`) are unchanged lines in `page.jsx`. They sit directly below the new TBD placeholder row, creating contradictory messaging — the note implies a schedule exists to be tentative.\n\n**Candidate solutions:**\n1. Remove the note paragraph and the \"View Complete Schedule →\" link entirely until a real schedule is available.\n2. Replace them with \"Check back closer to October 9, 2026 for the full schedule.\"\n</details>\n\n<details>\n<summary>\"Submit Your Paper\" label mismatch</summary>\n\n**Cause:** The CTA button in the hero section (`page.jsx` line ~278) still reads \"Submit Your Paper\" and links to `/docs/2026/call-for-papers`, which displays \"Coming soon.\" The link target is now correctly year-namespaced, but the label sets a wrong expectation for visitors before the CFP opens.\n\n**Candidate solutions:**\n1. Change button label to \"Call for Papers →\".\n2. Keep the label but add a visual \"Coming Soon\" badge or disable the button until CFP is live.\n</details>\n\n## Recommended Next Step\n\n`HUMAN_DECISION` — the remaining WARNING (`/docs` bare 404) and INFO items are all optional UX polish; whether to add a stub, change a button label, or remove a stale note is a product judgment call for the maintainer, not a concrete automated fix.\n\n## Final Verdict\n\n`MINOR_ISSUES`\n\n## Action Items\n\n- [ ] (Optional) Add `src/content/index.mdx` stub to prevent `/docs` from returning a GitHub Pages 404 for external links and old bookmarks.\n- [ ] (Optional) Remove the stale \"tentative schedule\" note and \"View Complete Schedule →\" link from `src/app/page.jsx` while no 2026 schedule exists.\n- [ ] (Optional) Rename the \"Submit Your Paper\" CTA button to \"Call for Papers →\" until the CFP opens.",
+      "createdAt": "2026-05-20T08:38:00Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/pull/6#issuecomment-4496310882",
+      "viewerDidAuthor": true
+    }
+  ],
+  "createdAt": "2026-05-20T08:18:22Z",
+  "files": [
+    {
+      "path": "src/app/_meta.js",
+      "additions": 1,
+      "deletions": 0,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": "src/app/page.jsx",
+      "additions": 34,
+      "deletions": 41,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": "src/content/2025/_meta.js",
+      "additions": 17,
+      "deletions": 0,
+      "changeType": "ADDED"
+    },
+    {
+      "path": "src/content/2025/call-for-papers.mdx",
+      "additions": 0,
+      "deletions": 0,
+      "changeType": "RENAMED"
+    },
+    {
+      "path": "src/content/2025/faq.mdx",
+      "additions": 0,
+      "deletions": 0,
+      "changeType": "RENAMED"
+    },
+    {
+      "path": "src/content/2025/index.mdx",
+      "additions": 0,
+      "deletions": 0,
+      "changeType": "RENAMED"
+    },
+    {
+      "path": "src/content/2025/organizers.mdx",
+      "additions": 0,
+      "deletions": 0,
+      "changeType": "RENAMED"
+    },
+    {
+      "path": "src/content/2025/schedule.mdx",
+      "additions": 0,
+      "deletions": 0,
+      "changeType": "RENAMED"
+    },
+    {
+      "path": "src/content/2026/_meta.js",
+      "additions": 7,
+      "deletions": 0,
+      "changeType": "ADDED"
+    },
+    {
+      "path": "src/content/2026/call-for-papers.mdx",
+      "additions": 7,
+      "deletions": 0,
+      "changeType": "ADDED"
+    },
+    {
+      "path": "src/content/2026/faq.mdx",
+      "additions": 7,
+      "deletions": 0,
+      "changeType": "ADDED"
+    },
+    {
+      "path": "src/content/2026/index.mdx",
+      "additions": 15,
+      "deletions": 0,
+      "changeType": "ADDED"
+    },
+    {
+      "path": "src/content/2026/organizers.mdx",
+      "additions": 7,
+      "deletions": 0,
+      "changeType": "ADDED"
+    },
+    {
+      "path": "src/content/2026/schedule.mdx",
+      "additions": 11,
+      "deletions": 0,
+      "changeType": "ADDED"
+    },
+    {
+      "path": "src/content/_meta.js",
+      "additions": 3,
+      "deletions": 16,
+      "changeType": "MODIFIED"
+    }
+  ],
+  "headRefName": "agent/implement-issue-5/claude-26150204613",
+  "labels": [],
+  "mergedAt": null,
+  "number": 6,
+  "reviewDecision": "",
+  "reviews": [],
+  "state": "OPEN",
+  "title": "Year-based versioning: /docs/2025 archive + /docs/2026 as new default",
+  "updatedAt": "2026-05-20T08:38:00Z",
+  "url": "https://github.com/lm4sci/lm4sci.github.io/pull/6"
+}

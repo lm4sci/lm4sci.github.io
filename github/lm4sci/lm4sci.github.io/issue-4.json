@@ -4,7 +4,7 @@
     "login": "app/sepo-agent-app"
   },
   "body": "Use this issue to track Sepo setup for this repository.\n\nThe latest setup status is maintained in the comment below.\n",
-  "closedAt": null,
+  "closedAt": "2026-05-20T06:41:27Z",
   "comments": [
     {
       "id": "IC_kwDOOY8Xus8AAAABC-LqPg",
@@ -25,8 +25,8 @@
   "createdAt": "2026-05-20T04:01:31Z",
   "labels": [],
   "number": 4,
-  "state": "OPEN",
+  "state": "CLOSED",
   "title": "Sepo setup check",
-  "updatedAt": "2026-05-20T04:01:46Z",
+  "updatedAt": "2026-05-20T06:41:27Z",
   "url": "https://github.com/lm4sci/lm4sci.github.io/issues/4"
 }

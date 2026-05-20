@@ -1,0 +1,129 @@
+{
+  "author": {
+    "id": "MDQ6VXNlcjIyNTEyODI1",
+    "is_bot": false,
+    "login": "lolipopshock",
+    "name": "Shannon Shen"
+  },
+  "body": "@sepo-agent /answer \n\nHow to redesign the website such that it can support \n1. switch to a previous year, /2025/ etc \n2. also update to the new year version /2026? ",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDOOY8Xus8AAAABC-Vx1Q",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "Here's a concrete plan for supporting year-based versioning (`/2025/`, `/2026/`) on this Nextra 4 + Next.js 15 site.\n\n---\n\n## Current architecture\n\nThe site uses **Nextra 4 (RC)** with `contentDirBasePath: '/docs'`. All content lives flat in `src/content/` and routes to `/docs/*`. There are no year-based folders yet.\n\nKey files:\n- [`next.config.ts`](https://github.com/lm4sci/lm4sci.github.io/blob/main/next.config.ts) — sets `contentDirBasePath: '/docs'`\n- [`src/app/_meta.js`](https://github.com/lm4sci/lm4sci.github.io/blob/main/src/app/_meta.js) — top-level page/route declarations\n- [`src/content/_meta.js`](https://github.com/lm4sci/lm4sci.github.io/blob/main/src/content/_meta.js) — sidebar nav for current content\n- [`src/app/docs/[[...mdxPath]]/page.jsx`](https://github.com/lm4sci/lm4sci.github.io/blob/main/src/app/docs/%5B%5B...mdxPath%5D%5D/page.jsx) — catch-all MDX route\n\n---\n\n## Proposed approach\n\n### Option A — Year subfolders under `/docs/` (simplest, recommended)\n\nNest content by year inside the existing `/docs` base path:\n\n```\nsrc/content/\n├── _meta.js           ← top-level: points to 2025/, 2026/\n├── 2025/\n│   ├── _meta.js       ← sidebar nav for 2025\n│   ├── index.mdx\n│   ├── organizers.mdx\n│   ├── call-for-papers.mdx\n│   ├── schedule.mdx\n│   └── faq.mdx\n└── 2026/\n    ├── _meta.js\n    ├── index.mdx\n    └── ...\n```\n\nURLs produced: `/docs/2025/`, `/docs/2025/schedule`, `/docs/2026/`, etc.\n\nNextra resolves `_meta.js` recursively, so the sidebar will automatically show a collapsible year section. No changes to `next.config.ts` or the dynamic route are needed.\n\n### Option B — Year as the top-level path segment (cleaner URLs, more work)\n\nRoute directly to `/2025/` and `/2026/` without the `/docs` prefix. This requires:\n1. Changing `contentDirBasePath` in `next.config.ts` to `'/'` (or adding parallel route groups in `src/app/`)\n2. Adding year-level entries in `src/app/_meta.js`\n3. Possibly duplicating or parameterizing the `[[...mdxPath]]` catch-all\n\nThis gives nicer URLs but is a bigger structural change. It also risks breaking the existing `/docs` path if not redirected.\n\n---\n\n## Recommended step-by-step plan (Option A)\n\n1. **Move 2025 content** into `src/content/2025/` — rename existing MDX files in place.\n2. **Add `src/content/2025/_meta.js`** — copy current `_meta.js`, no changes needed.\n3. **Update `src/content/_meta.js`** — replace flat page list with year entries:\n   ```js\n   export default {\n     2026: { title: '2026' },\n     2025: { title: '2025 (Archive)' },\n   }\n   ```\n4. **Create `src/content/2026/`** — new year's content with its own `_meta.js`.\n5. **Update `src/app/layout.jsx`** — optionally add a year switcher in the Navbar (a simple dropdown or links to `/docs/2026` vs `/docs/2025`).\n6. **Add redirects** — in `next.config.ts`, redirect `/docs` → `/docs/2026` so the current year is the default landing page.\n7. **Update image/asset paths** — move year-specific images under `public/images/2025/` to avoid collisions.\n\n---\n\n## Open questions before implementing\n\n1. **URL preference**: Do you want `/docs/2026/` (Option A) or clean `/2026/` (Option B)?\n2. **Default year redirect**: Should `/docs` or `/` redirect to the latest year automatically, or should the root page be a landing that lists all years?\n3. **Year switcher UI**: Should the navbar show a year dropdown, or is a sidebar section sufficient?\n4. **Content reuse**: Are any components (e.g., `OrganizerGrid`, `Collapsible`) expected to differ between years, or stay shared?\n\nLet me know your preference on URL structure and I can start the implementation.",
+      "createdAt": "2026-05-20T04:35:59Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/issues/5#issuecomment-4494553557",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABC_sNTg",
+      "author": {
+        "login": "lolipopshock"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "1. ok we might need to update the landing page? https://lm4sci.github.io/\n2. can we just rename current docs/ to 2025/ and we can add 2026 as the default navigation ? \n3. `Year switcher UI: Should the navbar show a year dropdown, or is a sidebar section sufficient?` -> we should add a section on landing page for past years ? Also in the 2026 docs we should add a seciton \n4. Let's not worry about content reuse yet\n\n@sepo-agent /answer ",
+      "createdAt": "2026-05-20T08:00:00Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "EYES",
+          "users": {
+            "totalCount": 1
+          }
+        }
+      ],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/issues/5#issuecomment-4495969614",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABC_tUDg",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "Good — here's the concrete plan aligned to your preferences.\n\n---\n\n## What changes, file by file\n\n### 1. Move all current content into `src/content/2025/`\n\n```\nsrc/content/2025/\n├── _meta.js           ← copy of current _meta.js (no changes needed)\n├── index.mdx\n├── organizers.mdx\n├── call-for-papers.mdx\n├── schedule.mdx\n└── faq.mdx\n```\n\nURLs become: `/docs/2025/`, `/docs/2025/schedule`, etc.\n\n---\n\n### 2. Create `src/content/2026/` as the new default\n\n```\nsrc/content/2026/\n├── _meta.js           ← same shape, updated titles/links for 2026\n├── index.mdx          ← new overview + link to past years at bottom\n├── organizers.mdx     ← placeholder (or copy + update from 2025)\n├── call-for-papers.mdx\n├── schedule.mdx\n└── faq.mdx\n```\n\nAdd a \"Past Editions\" entry at the bottom of `2026/_meta.js` using Nextra's separator + external link pattern:\n\n```js\nexport default {\n  index: { title: 'Overview' },\n  organizers: { title: 'Organizers' },\n  'call-for-papers': { title: 'Call for Papers' },\n  schedule: { title: 'Schedule' },\n  faq: { title: 'FAQ' },\n  '---': { type: 'separator', title: 'Archive' },\n  '2025-link': { title: 'LM4Sci 2025 ↗', href: '/docs/2025' },\n}\n```\n\n---\n\n### 3. Update `src/content/_meta.js` (top-level)\n\n```js\nexport default {\n  2026: { title: 'LM4Sci 2026' },\n  2025: { title: 'LM4Sci 2025' },\n}\n```\n\n---\n\n### 4. Update `src/app/page.jsx` (landing page)\n\nThree changes:\n- **Hero panel** (`line 64`): change \"LM4Sci 2025\" → \"LM4Sci 2026\", update date/location once known (or leave as TBD)\n- **CTA buttons** (`lines 41–54`): update `/docs` → `/docs/2026` and `/docs/call-for-papers` → `/docs/2026/call-for-papers`\n- **Schedule link** (`line 356`): `/docs/schedule` → `/docs/2026/schedule`\n- **Important Dates section** (`lines 364–405`): update to 2026 dates, or replace with TBD placeholders\n- **Add \"Past Editions\" section** before the CTA block: a simple card/link grid pointing to `/docs/2025`\n\n---\n\n### 5. No redirect needed (static export)\n\nSince the site uses `output: 'export'`, server-side redirects don't work. Instead, update every `/docs` link in `page.jsx` to `/docs/2026` explicitly — this is cleaner anyway. The top-level `/docs` route (if visited directly) will show Nextra's year-chooser sidebar automatically.\n\n---\n\n## Questions before I start\n\n1. **2026 content**: Do you want the 2026 files to start as copies of 2025 (placeholder), or should I create minimal stubs (just frontmatter + \"Coming soon\")?\n2. **Important Dates for 2026**: Do you have dates to fill in, or should I use TBD placeholders?\n3. **Hero section**: Keep \"co-located with COLM\" as the venue or leave blank for 2026?\n\nGive me the go-ahead (and any date/venue info if you have it) and I'll implement all of this.",
+      "createdAt": "2026-05-20T08:01:58Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/issues/5#issuecomment-4495987726",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABC_zMqA",
+      "author": {
+        "login": "lolipopshock"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "@sepo-agent /orchestrate\n\n2026 content: Do you want the 2026 files to start as copies of 2025 (placeholder), or should I create minimal stubs (just frontmatter + \"Coming soon\")?\n> let's create minimal stubs\n\nImportant Dates for 2026: Do you have dates to fill in, or should I use TBD placeholders?\n> check colm 2026 website \n\nHero section: Keep \"co-located with COLM\" as the venue or leave blank for 2026?\n> this is still true ",
+      "createdAt": "2026-05-20T08:12:25Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 1
+          }
+        },
+        {
+          "content": "EYES",
+          "users": {
+            "totalCount": 1
+          }
+        }
+      ],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/issues/5#issuecomment-4496084136",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABC_0dWw",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "Sepo is dispatching follow-up automation.\n\n| Source | Next | Target | Round | Status |\n| --- | --- | --- | --- | --- |\n| orchestrate | implement | Issue #5 | 2 / 12 | Dispatched |\n\nReason: agent planner selected implement: All clarifying questions answered. User approved the concrete plan: move current docs to 2025/, create minimal 2026/ stubs, update landing page and navigation. Ready for implementation.\n\n<!-- sepo-agent-handoff state:dispatched created:1779264890639 base64:aGFuZG9mZjpsbTRzY2kvbG00c2NpLmdpdGh1Yi5pbzoyNjE1MDA5MjE0NTpvcmNoZXN0cmF0ZTo1OmltcGxlbWVudDo1OjI -->",
+      "createdAt": "2026-05-20T08:14:51Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/issues/5#issuecomment-4496104795",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABC_2aFw",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "**Sepo implementation finished**\n\n- Branch: `agent/implement-issue-5/claude-26150204613`\n- Pull request: https://github.com/lm4sci/lm4sci.github.io/pull/6\n\nImplemented year-based content versioning for the LM4Sci site. Moved all existing 2025 content (index, organizers, call-for-papers, schedule, faq, _meta.js) into src/content/2025/. Created minimal 2026 stub files under src/content/2026/ (overview with COLM '26 date/location, plus Coming Soon pages for organizers, CfP, schedule, FAQ). Updated src/content/_meta.js to route by year (2026 first, then 2025). Updated src/app/page.jsx: hero now shows LM4Sci 2026 / October 9, 2026 / San Francisco co-located with COLM '26; all /docs links updated to /docs/2026/…; Important Dates updated to TBD for 2026 (workshop date Oct 9, 2026 filled in); added a Past Editions section linking to /docs/2025. COLM 2026 dates were confirmed from the official colmweb.org site (Oct 6-9, workshops on Oct 9, San Francisco).",
+      "createdAt": "2026-05-20T08:18:24Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/issues/5#issuecomment-4496136727",
+      "viewerDidAuthor": true
+    }
+  ],
+  "createdAt": "2026-05-20T04:33:31Z",
+  "labels": [],
+  "number": 5,
+  "state": "OPEN",
+  "title": "Update to the 2026 version of lm4sci",
+  "updatedAt": "2026-05-20T08:18:24Z",
+  "url": "https://github.com/lm4sci/lm4sci.github.io/issues/5"
+}
