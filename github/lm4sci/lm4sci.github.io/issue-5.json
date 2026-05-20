@@ -6,7 +6,7 @@
     "name": "Shannon Shen"
   },
   "body": "@sepo-agent /answer \n\nHow to redesign the website such that it can support \n1. switch to a previous year, /2025/ etc \n2. also update to the new year version /2026? ",
-  "closedAt": null,
+  "closedAt": "2026-05-20T16:57:12Z",
   "comments": [
     {
       "id": "IC_kwDOOY8Xus8AAAABC-Vx1Q",
@@ -122,8 +122,8 @@
   "createdAt": "2026-05-20T04:33:31Z",
   "labels": [],
   "number": 5,
-  "state": "OPEN",
+  "state": "CLOSED",
   "title": "Update to the 2026 version of lm4sci",
-  "updatedAt": "2026-05-20T08:18:24Z",
+  "updatedAt": "2026-05-20T16:57:12Z",
   "url": "https://github.com/lm4sci/lm4sci.github.io/issues/5"
 }

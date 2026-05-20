@@ -1,0 +1,71 @@
+{
+  "author": {
+    "id": "MDQ6VXNlcjIyNTEyODI1",
+    "is_bot": false,
+    "login": "lolipopshock",
+    "name": "Shannon Shen"
+  },
+  "body": "1. the workshop details on the navigation bar still goes to 2025 version \n2. in the left side navigation on doc/, we should create a tab for \"past versions\" (improve the wording though) and then put 2025 there. \n\n@sepo-agent ",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDOOY8Xus8AAAABDEmX3w",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "I triaged this as a `implement` request.\n\nWill update the navbar workshop link and add a 'Past Versions' section to the doc/ sidebar with the 2025 workshop.\n\nReply with:\n\n```text\n@sepo-agent /approve req-9b0604\n```\n\nto start the implementation workflow.\n\n<!-- sepo-agent-request base64:eyJyb3V0ZSI6ImltcGxlbWVudCIsInNvdXJjZV9raW5kIjoiaXNzdWUiLCJ0YXJnZXRfa2luZCI6Imlzc3VlIiwidGFyZ2V0X251bWJlciI6OSwidGFyZ2V0X3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9sbTRzY2kvbG00c2NpLmdpdGh1Yi5pby9pc3N1ZXMvOSIsIndvcmtmbG93IjoiYWdlbnQtaW1wbGVtZW50LnltbCIsInJlcXVlc3RfaWQiOiJyZXEtOWIwNjA0IiwicmVxdWVzdF90ZXh0Ijoibml0IG9mIGRlc2lnblxuXG4xLiB0aGUgd29ya3Nob3AgZGV0YWlscyBvbiB0aGUgbmF2aWdhdGlvbiBiYXIgc3RpbGwgZ29lcyB0byAyMDI1IHZlcnNpb24gXG4yLiBpbiB0aGUgbGVmdCBzaWRlIG5hdmlnYXRpb24gb24gZG9jLywgd2Ugc2hvdWxkIGNyZWF0ZSBhIHRhYiBmb3IgXCJwYXN0IHZlcnNpb25zXCIgKGltcHJvdmUgdGhlIHdvcmRpbmcgdGhvdWdoKSBhbmQgdGhlbiBwdXQgMjAyNSB0aGVyZS4gXG5cbkBzZXBvLWFnZW50ICIsImlzc3VlX3RpdGxlIjoiRml4IG5hdmJhciB3b3Jrc2hvcCBsaW5rIGFuZCBhZGQgUGFzdCBWZXJzaW9ucyBzaWRlYmFyIHNlY3Rpb24iLCJpc3N1ZV9ib2R5IjoiIyMgR29hbFxuXG5Ud28gbmF2aWdhdGlvbiBkZXNpZ24gZml4ZXMgZm9yIHRoZSB3b3Jrc2hvcCBzaXRlOlxuXG4xLiAqKk5hdmJhciB3b3Jrc2hvcCBsaW5rKiog4oCUIHRoZSBcIldvcmtzaG9wIERldGFpbHNcIiBsaW5rIGluIHRoZSB0b3AgbmF2aWdhdGlvbiBiYXIgY3VycmVudGx5IHBvaW50cyB0byB0aGUgMjAyNSB2ZXJzaW9uLiBJdCBzaG91bGQgcG9pbnQgdG8gdGhlIGN1cnJlbnQgKGxhdGVzdCkgdmVyc2lvbi5cbjIuICoqUGFzdCBWZXJzaW9ucyBzaWRlYmFyKiog4oCUIHRoZSBsZWZ0LXNpZGUgbmF2aWdhdGlvbiBvbiBgZG9jL2AgcGFnZXMgc2hvdWxkIGhhdmUgYSBuZXcgc2VjdGlvbiAobGFiZWxsZWQgc29tZXRoaW5nIGxpa2UgXCJQYXN0IEVkaXRpb25zXCIgb3IgXCJQcmV2aW91cyBWZXJzaW9uc1wiKSB0aGF0IGNvbnRhaW5zIGEgbGluayB0byB0aGUgMjAyNSB3b3Jrc2hvcC5cblxuIyMgQWNjZXB0YW5jZSBDcml0ZXJpYVxuXG4tIFsgXSBUaGUgbmF2YmFyIFwiV29ya3Nob3AgRGV0YWlsc1wiIGxpbmsgbmF2aWdhdGVzIHRvIHRoZSBjdXJyZW50L2xhdGVzdCB3b3Jrc2hvcCwgbm90IHRoZSAyMDI1IHZlcnNpb24uXG4tIFsgXSBUaGUgYGRvYy9gIHNpZGViYXIgaW5jbHVkZXMgYSBjbGVhcmx5LWxhYmVsbGVkIHNlY3Rpb24gZm9yIHBhc3QvcHJldmlvdXMgZWRpdGlvbnMuXG4tIFsgXSBUaGUgMjAyNSB3b3Jrc2hvcCBpcyBsaXN0ZWQgdW5kZXIgdGhhdCBwYXN0IGVkaXRpb25zIHNlY3Rpb24uXG4tIFsgXSBXb3JkaW5nIGZvciB0aGUgbmV3IHNpZGViYXIgc2VjdGlvbiBpcyBpbXByb3ZlZCBiZXlvbmQgYSBsaXRlcmFsIFwicGFzdCB2ZXJzaW9uc1wiIGxhYmVsIChlLmcuIFwiUGFzdCBFZGl0aW9uc1wiLCBcIlByZXZpb3VzIFdvcmtzaG9wc1wiLCBvciBzaW1pbGFyKS5cblxuIyMgQ29udGV4dFxuXG5PcmlnaW5hbCByZXF1ZXN0IGZyb20gaXNzdWUgIzkgYnkgQGxvbGlwb3BzaG9jay4ifQ -->\n\n| Approved by | Action | Tracking |\n|---|---|---|\n| @lolipopshock | `implement` via `agent-implement.yml` | [approval run](https://github.com/lm4sci/lm4sci.github.io/actions/runs/26180473996) |\n\n<!-- sepo-agent-approved -->\n",
+      "createdAt": "2026-05-20T17:56:22Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/issues/9#issuecomment-4501116895",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABDEnrlw",
+      "author": {
+        "login": "lolipopshock"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "@sepo-agent /approve req-9b0604",
+      "createdAt": "2026-05-20T17:59:00Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 1
+          }
+        }
+      ],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/issues/9#issuecomment-4501138327",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABDEpmOQ",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "**Sepo implementation finished**\n\n- Branch: `agent/implement-issue-9/claude-26180488653`\n- Pull request: https://github.com/lm4sci/lm4sci.github.io/pull/10\n- Approval: https://github.com/lm4sci/lm4sci.github.io/issues/9#issuecomment-4501138327\n\nThe navbar 'Workshop Details' link was already pointing to /docs/2026 (fixed in a prior commit). This PR adds the remaining change: a 'Previous Editions' separator and a 'LM4Sci 2025' link in the left-sidebar of docs pages by updating src/content/2026/_meta.js with a type:'separator' entry and an href entry pointing to /docs/2025.",
+      "createdAt": "2026-05-20T18:02:25Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/issues/9#issuecomment-4501169721",
+      "viewerDidAuthor": true
+    }
+  ],
+  "createdAt": "2026-05-20T17:55:00Z",
+  "labels": [],
+  "number": 9,
+  "state": "OPEN",
+  "title": "nit of design",
+  "updatedAt": "2026-05-20T18:02:26Z",
+  "url": "https://github.com/lm4sci/lm4sci.github.io/issues/9"
+}

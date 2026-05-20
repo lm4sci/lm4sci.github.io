@@ -1,0 +1,49 @@
+{
+  "author": {
+    "id": "MDQ6VXNlcjIyNTEyODI1",
+    "is_bot": false,
+    "login": "lolipopshock",
+    "name": "Shannon Shen"
+  },
+  "body": "https://github.com/lm4sci/lm4sci.github.io/actions/runs/26177323004/job/77010730279\n\nthere seems to be a bug in #6 \n\n@sepo-agent ",
+  "closedAt": "2026-05-20T17:26:58Z",
+  "comments": [
+    {
+      "id": "IC_kwDOOY8Xus8AAAABDESnUw",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "Sepo is dispatching follow-up automation.\n\n| Source | Next | Target | Round | Status |\n| --- | --- | --- | --- | --- |\n| orchestrate | implement | Issue #7 | 2 / 12 | Dispatched |\n\nReason: agent planner selected implement: Two concrete, automatable build bugs introduced by PR #6 are causing deployment failure. Both are small, well-scoped fixes targeting specific lines.\n\n<!-- sepo-agent-handoff state:dispatched created:1779297206758 base64:aGFuZG9mZjpsbTRzY2kvbG00c2NpLmdpdGh1Yi5pbzoyNjE3Nzc2MDkxOTpvcmNoZXN0cmF0ZTo3OmltcGxlbWVudDo3OjI -->",
+      "createdAt": "2026-05-20T17:13:27Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/issues/7#issuecomment-4500793171",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABDEWg9w",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "**Sepo implementation finished**\n\n- Branch: `agent/implement-issue-7/claude-26178140427`\n- Pull request: https://github.com/lm4sci/lm4sci.github.io/pull/8\n\nFixed two bugs introduced by PR #6 that caused the GitHub Pages deployment to fail. First, `src/content/2025/faq.mdx` and `src/content/2025/organizers.mdx` were using `'../components/Collapsible'` and `'../components/OrganizerGrid'` respectively — paths that were correct when the files lived at `src/content/` but broke after they were moved one level deeper to `src/content/2025/`. Both imports were updated to `'../../components/...'`. Second, the Next.js cache key in `.github/workflows/nextjs.yml` only hashed JS/TS files, not `.mdx` files, so moving MDX files didn't bust the cache; webpack restored a stale `.next/cache` whose `placeholder.js` still referenced the old flat file paths. The cache key was updated to include `**/*.mdx` in the hash and bumped to a `v2` prefix to immediately evict the stale cache on the next run.",
+      "createdAt": "2026-05-20T17:22:42Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/issues/7#issuecomment-4500857079",
+      "viewerDidAuthor": true
+    }
+  ],
+  "createdAt": "2026-05-20T17:05:51Z",
+  "labels": [],
+  "number": 7,
+  "state": "CLOSED",
+  "title": "deployment failure",
+  "updatedAt": "2026-05-20T17:26:58Z",
+  "url": "https://github.com/lm4sci/lm4sci.github.io/issues/7"
+}

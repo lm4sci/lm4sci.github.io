@@ -5,7 +5,7 @@
   },
   "baseRefName": "main",
   "body": "## Summary\n\n- Moves all existing workshop content into `src/content/2025/` so it becomes accessible at `/docs/2025/*`\n- Creates minimal `src/content/2026/` stubs (Coming Soon) for the new default year, dated October 9, 2026 in San Francisco co-located with COLM '26\n- Updates `src/content/_meta.js` to route by year (2026 first)\n- Updates landing page (`src/app/page.jsx`):\n  - Hero panel now shows **LM4Sci 2026** with COLM '26 date/location\n  - All `/docs` and `/docs/call-for-papers` links updated to `/docs/2026/…`\n  - Important Dates updated to TBD (Oct 9, 2026 workshop date filled in)\n  - Adds a **Past Editions** section linking to the 2025 archive\n\n## Test plan\n\n- [ ] `/docs/2025` loads the archived 2025 overview\n- [ ] `/docs/2026` loads the 2026 stub overview\n- [ ] Landing page hero shows LM4Sci 2026 with correct date/location\n- [ ] Landing page Past Editions card links to `/docs/2025`\n- [ ] All CTA and schedule links on landing page go to `/docs/2026/…`\n\nCloses #5\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n",
-  "closedAt": null,
+  "closedAt": "2026-05-20T16:57:10Z",
   "comments": [
     {
       "id": "IC_kwDOOY8Xus8AAAABC_2_ag",
@@ -126,6 +126,21 @@
       "reactionGroups": [],
       "url": "https://github.com/lm4sci/lm4sci.github.io/pull/6#issuecomment-4496310882",
       "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABDEMRXQ",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "## Rubrics Update\n\nNo changes were committed to [`agent/rubrics`](https://github.com/lm4sci/lm4sci.github.io/tree/agent/rubrics) from PR #6.\n\nno rubric changes\n\nPR #6 had zero human comments, reviews, or inline feedback — it was entirely agent-generated and auto-merged. No trusted contributor interaction means no durable preferences to capture.\n",
+      "createdAt": "2026-05-20T16:58:41Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/pull/6#issuecomment-4500689245",
+      "viewerDidAuthor": true
     }
   ],
   "createdAt": "2026-05-20T08:18:22Z",
@@ -223,12 +238,12 @@
   ],
   "headRefName": "agent/implement-issue-5/claude-26150204613",
   "labels": [],
-  "mergedAt": null,
+  "mergedAt": "2026-05-20T16:57:10Z",
   "number": 6,
   "reviewDecision": "",
   "reviews": [],
-  "state": "OPEN",
+  "state": "MERGED",
   "title": "Year-based versioning: /docs/2025 archive + /docs/2026 as new default",
-  "updatedAt": "2026-05-20T08:38:00Z",
+  "updatedAt": "2026-05-20T16:58:41Z",
   "url": "https://github.com/lm4sci/lm4sci.github.io/pull/6"
 }

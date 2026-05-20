@@ -1,0 +1,102 @@
+{
+  "author": {
+    "is_bot": true,
+    "login": "app/sepo-agent-app"
+  },
+  "baseRefName": "main",
+  "body": "## What broke\n\nPR #6 moved MDX files from `src/content/*.mdx` into `src/content/2025/*.mdx`, but two files kept their old relative import paths:\n\n- `src/content/2025/faq.mdx` imported `'../components/Collapsible'` → resolved to the non-existent `src/content/components/`\n- `src/content/2025/organizers.mdx` imported `'../components/OrganizerGrid'` → same issue\n\nAdditionally, the CI cache key in `nextjs.yml` only hashed JS/TS files, not `.mdx` files. Moving MDX files didn't change the cache hash, so GitHub Actions restored a stale `.next/cache` whose compiled `placeholder.js` still referenced the old flat file paths (`src/content/faq.mdx` etc.), producing additional module-not-found errors.\n\n## Changes\n\n- `src/content/2025/faq.mdx`: `'../components/Collapsible'` → `'../../components/Collapsible'`\n- `src/content/2025/organizers.mdx`: `'../components/OrganizerGrid'` → `'../../components/OrganizerGrid'`\n- `.github/workflows/nextjs.yml`: include `**/*.mdx` in the cache key hash; bump cache prefix to `v2` to immediately evict the stale pre-fix cache\n\nCloses #7\n",
+  "closedAt": "2026-05-20T17:26:56Z",
+  "comments": [
+    {
+      "id": "IC_kwDOOY8Xus8AAAABDEXjdQ",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "Sepo is dispatching follow-up automation.\n\n| Source | Next | Target | Round | Status |\n| --- | --- | --- | --- | --- |\n| implement | review | PR #8 | 3 / 12 | Dispatched |\n\nReason: agent planner selected review: implement succeeded and produced PR #8 fixing deployment bugs from #6. Handing off to review to verify correctness of the import path fixes and cache key changes.\n\n<!-- sepo-agent-handoff state:dispatched created:1779297908452 base64:aGFuZG9mZjpsbTRzY2kvbG00c2NpLmdpdGh1Yi5pbzoyNjE3ODE0MDQyNzppbXBsZW1lbnQ6NzpyZXZpZXc6ODoz -->",
+      "createdAt": "2026-05-20T17:25:09Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/pull/8#issuecomment-4500874101",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABDEYfBA",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "No rubrics have been initialized for this repository. I have all the context needed to write the review.\n\n## Rubrics Review\n\n| Total Score | Verdict | Rubrics Scored |\n| -- | -- | -- |\n| N/A | N/A | 0 |\n\n| Dimension | Rubric | Result | Score | Evidence |\n| -- | -- | -- | -- | -- |\n| — | No rubrics initialized | not applicable | N/A | `PROJECT.md`: \"Rubrics: not yet initialized.\" No rubric branch detected. |\n\n## Notes\n\n- No rubrics are configured for this repo yet, so there is nothing to score against. The review below is a correctness audit against the stated bug instead.\n- **Import path fix is correct.** Files at `src/content/2025/*.mdx` need `../../components/…` to reach `src/components/`. The old `../components/` would have resolved to the nonexistent `src/content/components/` — confirmed by checking the local checkout where `src/components/` contains `Collapsible.jsx` and `OrganizerGrid.jsx`.\n- **Cache key fix is correct.** `**/*.mdx` glob is now included in the `hashFiles(…)` expression, so moving or editing MDX files will bust the Next.js build cache. The `v2` prefix immediately invalidates the stale cache from before the fix — necessary because the old cache's compiled `placeholder.js` still referenced the flat pre-move paths.\n- **Scope is minimal and targeted.** Three files changed, zero unrelated edits. Each change directly addresses one of the two root causes described in the PR body.\n- Follow-up: initializing rubrics for this repo would let future automated reviews score meaningfully rather than returning N/A.\n\n## Findings\n\n- **INFO:** No rubrics branch found — future review runs will return N/A until rubrics are initialized (`/rubrics` or equivalent setup step).\n- **INFO:** The PR correctly fixes both failure modes from issue #7. The local checkout on `main` still shows the broken import paths, confirming the fix hasn't been merged yet and is needed.\n\n## Final Rubric Verdict\n\nN/A",
+      "createdAt": "2026-05-20T17:27:05Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/pull/8#issuecomment-4500889348",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABDEZzZA",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "## Rubrics Update\n\nNo changes were committed to [`agent/rubrics`](https://github.com/lm4sci/lm4sci.github.io/tree/agent/rubrics) from PR #8.\n\nThe PR conversation contains only bot/agent-authored comments (sepo-agent-app with `author_association: NONE`). There are no reviews, no inline comments, and no trusted contributor (OWNER/MEMBER/COLLABORATOR) feedback expressing preferences. The PR was authored and auto-merged by the agent without any human review commentary.\n\n**no rubric changes** — all conversation participants are bots; no trusted contributor preference was expressed.\n",
+      "createdAt": "2026-05-20T17:30:07Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/pull/8#issuecomment-4500910948",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOOY8Xus8AAAABDEcVBA",
+      "author": {
+        "login": "sepo-agent-app"
+      },
+      "authorAssociation": "NONE",
+      "body": "## AI Review Synthesis\n\n<!-- sepo-agent-review-synthesis -->\n<!-- sepo-agent-review-synthesis-head: ad6243b8587403e694f63003bcf3b30220837b9e -->\n\n> Dual-agent review by **Claude** and **Codex**.\n> Requested by @lolipopshock.\n\nBoth review files are read, PR is already merged. No inline comments exist. I have everything needed to write the synthesis.\n\n---\n\n## Summary of PR/Issue\n\nPR #8 fixes two root causes of the deployment failure triggered by PR #6's year-based MDX directory restructure. First, `faq.mdx` and `organizers.mdx` had stale one-level relative import paths (`../components/…`) that now resolve to the nonexistent `src/content/components/` after being moved into `src/content/2025/`; the fix corrects them to `../../components/…`. Second, the CI cache key's `hashFiles()` expression omitted `**/*.mdx`, so the stale `.next/cache` — whose compiled `placeholder.js` still referenced the old flat paths — survived the restructure; the fix adds the glob and bumps the prefix to `v2` to immediately evict the broken cache. The PR closes issue #7 and was merged by @lolipopshock on 2026-05-20.\n\n## Review\n\nBoth reviewers independently confirm every change is technically correct and the scope is minimal (3 files, 4 lines). No disagreements between reviewers. One pre-existing operational concern (Node.js 20 deprecation) is worth tracking but is not introduced by this PR.\n\n| Issue | Severity | Description |\n| -- | -- | -- |\n| Node.js 20 deprecation in workflow | INFO | `actions/checkout@v4`, `cache@v4`, and `setup-node@v4` run on Node 20, which GitHub Actions deprecates June 2, 2026. Pre-existing debt, not introduced here. |\n| Glob style inconsistency | INFO | `**.[jt]sx` (dot-style) vs `**/*.mdx` (slash-style) coexist in the same `hashFiles()` call. Both are valid GHA globs; no correctness issue. |\n| No rubrics initialized | INFO | Automated review scoring returns N/A for all dimensions until rubrics are configured for this repo. |\n\n## Progress\n\n- Import path fix verified correct against actual file tree: `src/components/Collapsible.jsx` and `OrganizerGrid.jsx` both exist at the resolved target.\n- Cache bust is complete: both `key:` and `restore-keys:` lines were updated to `v2`, preventing stale-cache re-use via prefix fallback.\n- No other MDX files in the repo contain component imports — no missed occurrences.\n- Memory updated with canonical rules: MDX files under `src/content/YYYY/` use `../../components/…`, and `nextjs.yml` cache key must include `**/*.mdx`.\n- PR already merged (2026-05-20T17:26:56Z).\n\n## Issue Details\n\n<details>\n<summary>Node.js 20 deprecation in workflow</summary>\n\n**Cause:** The workflow's `actions/checkout@v4`, `actions/cache@v4`, and `actions/setup-node@v4` all depend on Node.js 20. GitHub Actions will force Node.js 24 after June 2, 2026, causing annotation warnings that may eventually become hard failures.\n\n**Candidate solutions:**\n- Bump action versions to `@v5` or higher (which ship with Node 24 runtime) in a follow-up PR.\n- Alternatively, add `env: FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true` to the workflow as a short-term shim.\n\n**Comments:** Not introduced by PR #8; pre-existing since the original workflow. Deadline is ~6 weeks away (June 2, 2026).\n\n</details>\n\n<details>\n<summary>Glob style inconsistency</summary>\n\n**Cause:** The existing `hashFiles('**.[jt]s', '**.[jt]sx')` uses dot-notation (no `/`), while the new `'**/*.mdx'` uses the `/`-prefixed form. Both forms are documented as equivalent in GitHub Actions.\n\n**Candidate solutions:** Normalize to one style in a future cleanup pass (e.g., `**/*.{js,ts,jsx,tsx,mdx}`).\n\n**Comments:** Zero correctness risk. Purely stylistic.\n\n</details>\n\n## Recommended Next Step\n\n`HUMAN_DECISION` — the only remaining actionable item (Node.js 20 deprecation) is pre-existing debt that requires a follow-up PR and a maintainer decision on timing; no automated fix-pr action is warranted on this merged PR.\n\n## Final Verdict\n\n**SHIP**\n\n## Action Items\n\n- [ ] Follow up on Node.js 20 deprecation: bump `actions/checkout`, `actions/cache`, and `actions/setup-node` to `@v5`+ before June 2, 2026 to avoid forced Node 24 breakage in the deploy workflow.\n- [ ] Initialize rubrics for this repo (e.g., `/rubrics` setup) so future automated reviews produce scored results rather than N/A.",
+      "createdAt": "2026-05-20T17:36:04Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/lm4sci/lm4sci.github.io/pull/8#issuecomment-4500952324",
+      "viewerDidAuthor": true
+    }
+  ],
+  "createdAt": "2026-05-20T17:22:40Z",
+  "files": [
+    {
+      "path": ".github/workflows/nextjs.yml",
+      "additions": 2,
+      "deletions": 2,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": "src/content/2025/faq.mdx",
+      "additions": 1,
+      "deletions": 1,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": "src/content/2025/organizers.mdx",
+      "additions": 1,
+      "deletions": 1,
+      "changeType": "MODIFIED"
+    }
+  ],
+  "headRefName": "agent/implement-issue-7/claude-26178140427",
+  "labels": [],
+  "mergedAt": "2026-05-20T17:26:56Z",
+  "number": 8,
+  "reviewDecision": "",
+  "reviews": [],
+  "state": "MERGED",
+  "title": "Fix deployment: correct relative imports and bust stale Next.js cache",
+  "updatedAt": "2026-05-20T17:36:04Z",
+  "url": "https://github.com/lm4sci/lm4sci.github.io/pull/8"
+}
