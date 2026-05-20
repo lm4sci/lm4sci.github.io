@@ -2,7 +2,7 @@
 
 ## Summary
 
-Academic workshop website for LM4Sci (Language Models for Science). Built with Next.js + Nextra v4 (beta, app-router-based). Site content lives in MDX files under `src/content/`. Pages include schedule, organizers, call for papers, FAQ, and an index.
+Academic workshop website for LM4Sci (Language Models for Science). Built with Next.js + Nextra v4 (beta, app-router-based). Site content lives in MDX files under `src/content/`. Pages include schedule, organizers, call for papers, FAQ, and an index. COLM 2026 co-located workshop: October 9, 2026, San Francisco.
 
 ## Tech Stack
 
@@ -21,4 +21,4 @@ Academic workshop website for LM4Sci (Language Models for Science). Built with N
 
 ## Open Questions
 
-- Is the workshop tied to a specific conference year / submission deadline?
+- PR #6 (open): year-based versioning — moves 2025 content to src/content/2025/, adds 2026 stubs; not yet merged as of 2026-05-20
