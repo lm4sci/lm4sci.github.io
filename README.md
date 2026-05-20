@@ -1,4 +1,4 @@
-# Documentation site for Lit Canvas
+# Documentation site for LM4Sci
 
 ## Quick start 
 
