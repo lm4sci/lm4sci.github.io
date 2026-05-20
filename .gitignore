@@ -136,3 +136,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Sepo generated files and dependencies
+.agent/dist/
+.agent/node_modules/
