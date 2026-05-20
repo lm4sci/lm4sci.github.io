@@ -9,6 +9,7 @@ export default {
     docs: {
         type: 'page',
         title: 'Workshop Details',
+        href: '/docs/2026',
         // display: 'hidden'
     },
 }

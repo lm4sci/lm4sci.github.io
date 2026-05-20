@@ -1,17 +1,4 @@
 export default {
-    index: {
-        title: 'Overview',
-    },
-    organizers: {
-        title: 'Organizers',
-    },
-    'call-for-papers': {
-        title: 'Call for Papers',
-    },
-    schedule: {
-        title: 'Schedule',
-    },
-    faq: {
-        title: 'FAQ',
-    },
+    2026: { title: 'LM4Sci 2026' },
+    2025: { title: 'LM4Sci 2025' },
 }
