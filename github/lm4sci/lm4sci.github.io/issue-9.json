@@ -6,7 +6,7 @@
     "name": "Shannon Shen"
   },
   "body": "1. the workshop details on the navigation bar still goes to 2025 version \n2. in the left side navigation on doc/, we should create a tab for \"past versions\" (improve the wording though) and then put 2025 there. \n\n@sepo-agent ",
-  "closedAt": null,
+  "closedAt": "2026-05-23T17:18:02Z",
   "comments": [
     {
       "id": "IC_kwDOOY8Xus8AAAABDEmX3w",
@@ -64,8 +64,8 @@
   "createdAt": "2026-05-20T17:55:00Z",
   "labels": [],
   "number": 9,
-  "state": "OPEN",
+  "state": "CLOSED",
   "title": "nit of design",
-  "updatedAt": "2026-05-20T18:02:26Z",
+  "updatedAt": "2026-05-23T17:18:02Z",
   "url": "https://github.com/lm4sci/lm4sci.github.io/issues/9"
 }

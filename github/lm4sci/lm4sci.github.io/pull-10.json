@@ -5,7 +5,7 @@
   },
   "baseRefName": "main",
   "body": "## Changes\n\n- Adds a **Previous Editions** separator and **LM4Sci 2025** link to the left-sidebar on all `/docs/2026/*` pages via `src/content/2026/_meta.js`.\n- The navbar \"Workshop Details\" link was already corrected to `/docs/2026` in a prior commit; no change needed there.\n\n## Why\n\nVisitors browsing the 2026 workshop docs now have a clear path to the archived 2025 edition from the sidebar, without clutter in the main navigation items.\n\nCloses #9\n",
-  "closedAt": null,
+  "closedAt": "2026-05-23T17:18:01Z",
   "comments": [],
   "createdAt": "2026-05-20T18:02:22Z",
   "files": [
@@ -18,12 +18,12 @@
   ],
   "headRefName": "agent/implement-issue-9/claude-26180488653",
   "labels": [],
-  "mergedAt": null,
+  "mergedAt": "2026-05-23T17:18:01Z",
   "number": 10,
   "reviewDecision": "",
   "reviews": [],
-  "state": "OPEN",
+  "state": "MERGED",
   "title": "Add Previous Editions sidebar section linking to LM4Sci 2025",
-  "updatedAt": "2026-05-20T18:02:22Z",
+  "updatedAt": "2026-05-23T17:18:14Z",
   "url": "https://github.com/lm4sci/lm4sci.github.io/pull/10"
 }

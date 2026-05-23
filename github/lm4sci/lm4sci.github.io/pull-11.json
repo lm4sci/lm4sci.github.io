@@ -1,0 +1,85 @@
+{
+  "author": {
+    "id": "MDQ6VXNlcjMwNzczNzk5",
+    "is_bot": false,
+    "login": "NoviScl",
+    "name": "Chenglei"
+  },
+  "baseRefName": "main",
+  "body": "…rview\r\n\r\n- Add 2026 organizer list (8 organizers) with photos and update main page grid\r\n- Populate call for papers with topics, submission guidelines, and deadlines\r\n- Add FAQ page with full-paper-only submission policy\r\n- Populate overview page with workshop description and important dates\r\n- Rename workshop to \"LM4Sci 2.0: The Second Workshop on Language Models for Scientific Discovery\"\r\n- Update site metadata, footer, and hero section to reflect new name",
+  "closedAt": "2026-05-23T17:07:26Z",
+  "comments": [],
+  "createdAt": "2026-05-23T17:06:49Z",
+  "files": [
+    {
+      "path": "public/images/organizers/hanane.jpg",
+      "additions": 0,
+      "deletions": 0,
+      "changeType": "ADDED"
+    },
+    {
+      "path": "public/images/organizers/huan.png",
+      "additions": 0,
+      "deletions": 0,
+      "changeType": "ADDED"
+    },
+    {
+      "path": "public/images/organizers/yanzhe.jpg",
+      "additions": 0,
+      "deletions": 0,
+      "changeType": "ADDED"
+    },
+    {
+      "path": "src/app/layout.jsx",
+      "additions": 3,
+      "deletions": 3,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": "src/app/page.jsx",
+      "additions": 7,
+      "deletions": 13,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": "src/components/OrganizerGrid.jsx",
+      "additions": 83,
+      "deletions": 0,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": "src/content/2026/call-for-papers.mdx",
+      "additions": 43,
+      "deletions": 1,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": "src/content/2026/faq.mdx",
+      "additions": 17,
+      "deletions": 1,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": "src/content/2026/index.mdx",
+      "additions": 25,
+      "deletions": 2,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": "src/content/2026/organizers.mdx",
+      "additions": 7,
+      "deletions": 1,
+      "changeType": "MODIFIED"
+    }
+  ],
+  "headRefName": "chenglei_2026",
+  "labels": [],
+  "mergedAt": "2026-05-23T17:07:26Z",
+  "number": 11,
+  "reviewDecision": "",
+  "reviews": [],
+  "state": "MERGED",
+  "title": "Update LM4Sci 2026 website: organizers, call for papers, FAQ, and ove…",
+  "updatedAt": "2026-05-23T17:07:26Z",
+  "url": "https://github.com/lm4sci/lm4sci.github.io/pull/11"
+}
