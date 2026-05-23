@@ -1,8 +1,8 @@
-import { OrganizerGridIndex } from "../components/OrganizerGrid";
+import { OrganizerGridIndex2026 } from "../components/OrganizerGrid";
 
 export const metadata = {
   title: "LM4Sci Workshop",
-  description: "LLM for Scientific Discovery: Reasoning, Assistance, and Collaboration",
+  description: "LM4Sci 2.0: The Second Workshop on Language Models for Scientific Discovery",
 };
 
 export default function IndexPage() {
@@ -63,7 +63,7 @@ export default function IndexPage() {
               <div className="p-8 text-center text-white">
                 <div className="text-5xl font-bold mb-4">LM4Sci 2026</div>
                 <div className="text-2xl mb-6">
-                  LLM for Scientific Discovery
+                  Language Models for Scientific Discovery
                 </div>
                 <div className="text-xl opacity-80">Date: October 9, 2026</div>
                 <div className="text-xl opacity-80">
@@ -83,13 +83,7 @@ export default function IndexPage() {
               About the Workshop
             </h2>
             <p className="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl">
-              LLM for Scientific Discovery
-            </p>
-            <p className="mt-4 max-w-3xl text-xl text-gray-500 lg:mx-auto">
-              Welcome the  Workshop on LLM for Scientific Discovery: Reasoning, Assistance, and Collaboration,
-              (LM4Sci), a forum for researchers, practitioners, and
-              stakeholders working at the intersection of artificial
-              intelligence and scientific discovery.
+              Language Models for Scientific Discovery
             </p>
           </div>
 
@@ -224,7 +218,7 @@ export default function IndexPage() {
             </p>
           </div>
 
-          <OrganizerGridIndex />
+          <OrganizerGridIndex2026 />
         </div>
       </div>
 
@@ -347,7 +341,7 @@ export default function IndexPage() {
                   Submission Deadline
                 </h3>
                 <div className="mt-2 text-3xl font-bold text-indigo-600">
-                  TBD
+                  Jun 23
                 </div>
               </div>
               <div className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-sm">
@@ -355,7 +349,7 @@ export default function IndexPage() {
                   Notification
                 </h3>
                 <div className="mt-2 text-3xl font-bold text-indigo-600">
-                  TBD
+                  Jul 24
                 </div>
               </div>
               <div className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-sm">

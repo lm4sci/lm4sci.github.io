@@ -7,12 +7,12 @@ import "./globals.css";
 
 export const metadata = {
   // For more information on metadata API, see: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
-  applicationName: "LLM for Scientific Discovery: Reasoning, Assistance, and Collaboration",
+  applicationName: "LM4Sci 2.0: The Second Workshop on Language Models for Scientific Discovery",
   description:
     "Bridge the gap between AI researchers and domain scientists by fostering interdisciplinary dialogue on foundation models can enhance scientific reasoning, assist human researchers, and transform scientific workflows",
   title: {
     template: "%s | LM4SCI Workshop",
-    absolute: "LM4SCI: LLM for Scientific Discovery",
+    absolute: "LM4SCI: Language Models for Scientific Discovery",
   },
   openGraph: {
     siteName: "LM4SCI Workshop",
@@ -50,7 +50,7 @@ const navbar = (
 const footer = (
   <Footer className="flex-col items-center md:items-start !py-4">
     <p className="text-sm">
-      © {new Date().getFullYear()} LLM for Scientific Discovery
+      © {new Date().getFullYear()} Language Models for Scientific Discovery
     </p>
   </Footer>
 );

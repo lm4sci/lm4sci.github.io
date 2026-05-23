@@ -138,3 +138,86 @@ export function OrganizerGridIndex() {
     </div>
   );
 }
+
+const organizers2026 = [
+  {
+    name: "Chenglei Si",
+    institution: "Stanford University",
+    imageUrl: "/images/organizers/chenglei.jpg",
+  },
+  {
+    name: "Shannon Zejiang Shen",
+    institution: "MIT",
+    imageUrl: "/images/organizers/shannon.jpg",
+  },
+  {
+    name: "Hanane Nour Moussa",
+    institution: "Ohio State University",
+    imageUrl: "/images/organizers/hanane.jpg",
+  },
+  {
+    name: "Yanzhe Zhang",
+    institution: "Georgia Institute of Technology",
+    imageUrl: "/images/organizers/yanzhe.jpg",
+  },
+  {
+    name: "Akari Asai",
+    institution: "University of Washington",
+    imageUrl: "/images/organizers/akari.jpg",
+  },
+  {
+    name: "Mark Yatskar",
+    institution: "University of Pennsylvania",
+    imageUrl: "/images/organizers/mark.jpg",
+  },
+  {
+    name: "Huan Sun",
+    institution: "Ohio State University",
+    imageUrl: "/images/organizers/huan.png",
+  },
+  {
+    name: "Diyi Yang",
+    institution: "Stanford University",
+    imageUrl: "/images/organizers/diyi.jpg",
+  },
+];
+
+export function OrganizerGrid2026() {
+  return (
+    <div
+      className={cn(
+        `grid gap-6 my-8`,
+        `grid-cols-1 md:grid-cols-2 lg:grid-cols-3`
+      )}
+    >
+      {organizers2026.map((organizer, index) => (
+        <OrganizerCard
+          key={index}
+          name={organizer.name}
+          institution={organizer.institution}
+          imageUrl={organizer.imageUrl}
+        />
+      ))}
+    </div>
+  );
+}
+
+export function OrganizerGridIndex2026() {
+  return (
+    <div
+      className={cn(
+        `grid gap-6 my-8`,
+        `grid-cols-1 md:grid-cols-2 lg:grid-cols-4`
+      )}
+    >
+      {organizers2026.map((organizer, index) => (
+        <OrganizerCard
+          key={index}
+          name={organizer.name}
+          institution={organizer.institution}
+          imageUrl={organizer.imageUrl}
+        />
+      ))}
+    </div>
+  );
+}
