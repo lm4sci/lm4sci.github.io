@@ -8,3 +8,4 @@
 - Content is year-versioned: src/content/2025/ (archived) and src/content/2026/ (current default); links use /docs/YYYY/… paths. Add new editions as src/content/YYYY/.
 - MDX files under src/content/YYYY/ import components with '../../components/…' (two levels up to reach src/components/); update on any directory restructure.
 - nextjs.yml cache key must include **/*.mdx; omitting it lets stale .next/cache survive MDX restructures and causes module-not-found errors in CI.
+- Cross-edition sidebar nav lives in the current year's _meta.js: add a 'separator' + link entry pointing to prior editions when a new year goes live.
