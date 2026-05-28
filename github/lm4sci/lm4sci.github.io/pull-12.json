@@ -1,0 +1,43 @@
+{
+  "author": {
+    "id": "MDQ6VXNlcjMwNzczNzk5",
+    "is_bot": false,
+    "login": "NoviScl",
+    "name": "Chenglei"
+  },
+  "baseRefName": "main",
+  "body": "",
+  "closedAt": "2026-05-28T15:32:50Z",
+  "comments": [],
+  "createdAt": "2026-05-28T15:32:41Z",
+  "files": [
+    {
+      "path": "src/app/page.jsx",
+      "additions": 15,
+      "deletions": 3,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": "src/content/2026/call-for-papers.mdx",
+      "additions": 3,
+      "deletions": 1,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": "src/content/2026/index.mdx",
+      "additions": 4,
+      "deletions": 0,
+      "changeType": "MODIFIED"
+    }
+  ],
+  "headRefName": "chenglei_2026",
+  "labels": [],
+  "mergedAt": "2026-05-28T15:32:50Z",
+  "number": 12,
+  "reviewDecision": "",
+  "reviews": [],
+  "state": "MERGED",
+  "title": "Add OpenReview submission link to main page and 2026 pages",
+  "updatedAt": "2026-05-28T15:32:50Z",
+  "url": "https://github.com/lm4sci/lm4sci.github.io/pull/12"
+}
