@@ -35,7 +35,7 @@ export default function IndexPage() {
                   exploring the intersection of artificial intelligence and
                   scientific discovery.
                 </p>
-                <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                <div className="mt-5 sm:mt-8 sm:flex sm:flex-wrap sm:justify-center sm:gap-3 lg:justify-start">
                   <div className="rounded-md shadow">
                     <a
                       href="/docs/2026"
@@ -44,12 +44,22 @@ export default function IndexPage() {
                       Workshop Details
                     </a>
                   </div>
-                  <div className="mt-3 sm:mt-0 sm:ml-3">
+                  <div className="mt-3 sm:mt-0">
                     <a
                       href="/docs/2026/call-for-papers"
                       className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 md:px-10 md:text-lg"
                     >
                       Call for Papers
+                    </a>
+                  </div>
+                  <div className="mt-3 sm:mt-0">
+                    <a
+                      href="https://openreview.net/group?id=colmweb.org/COLM/2026/Workshop/LM4Sci&referrer=%5BHomepage%5D(%2F)"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
+                    >
+                      Submit on OpenReview
                     </a>
                   </div>
                 </div>
@@ -270,7 +280,9 @@ export default function IndexPage() {
             the future of science and human-AI interaction.
           </p>
           <a
-            href="/docs/2026/call-for-papers"
+            href="https://openreview.net/group?id=colmweb.org/COLM/2026/Workshop/LM4Sci&referrer=%5BHomepage%5D(%2F)"
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-8 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-indigo-600 hover:bg-indigo-50 sm:w-auto"
           >
             Submit Your Paper
