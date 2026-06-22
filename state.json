@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "repo_slug": "lm4sci/lm4sci.github.io",
-  "last_sync_at": "2026-06-22T05:32:15Z",
+  "last_sync_at": "2026-06-22T12:27:17Z",
   "last_activity_at": "2026-05-28T15:32:50Z",
   "cursors": {
-    "issues": "2026-06-22T05:32:15Z",
-    "pulls": "2026-06-22T05:32:15Z",
-    "discussions": "2026-06-22T05:32:15Z",
-    "commits": "2026-06-22T05:32:15Z"
+    "issues": "2026-06-22T12:27:17Z",
+    "pulls": "2026-06-22T12:27:17Z",
+    "discussions": "2026-06-22T12:27:17Z",
+    "commits": "2026-06-22T12:27:17Z"
   },
-  "last_run_url": "https://github.com/lm4sci/lm4sci.github.io/actions/runs/27931742816",
+  "last_run_url": "https://github.com/lm4sci/lm4sci.github.io/actions/runs/27952546497",
   "created_at": "2026-05-20T04:02:31.173Z",
-  "updated_at": "2026-06-22T05:32:16.692Z"
+  "updated_at": "2026-06-22T12:27:19.855Z"
 }
