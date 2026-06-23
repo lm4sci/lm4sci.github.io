@@ -353,7 +353,7 @@ export default function IndexPage() {
                   Submission Deadline
                 </h3>
                 <div className="mt-2 text-3xl font-bold text-indigo-600">
-                  Jun 23
+                  Jun 28
                 </div>
               </div>
               <div className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-sm">
