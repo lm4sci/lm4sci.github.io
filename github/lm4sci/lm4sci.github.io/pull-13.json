@@ -1,0 +1,43 @@
+{
+  "author": {
+    "id": "MDQ6VXNlcjMwNzczNzk5",
+    "is_bot": false,
+    "login": "NoviScl",
+    "name": "Chenglei"
+  },
+  "baseRefName": "main",
+  "body": "",
+  "closedAt": "2026-06-23T16:11:11Z",
+  "comments": [],
+  "createdAt": "2026-06-23T16:11:02Z",
+  "files": [
+    {
+      "path": "src/app/page.jsx",
+      "additions": 1,
+      "deletions": 1,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": "src/content/2026/call-for-papers.mdx",
+      "additions": 1,
+      "deletions": 1,
+      "changeType": "MODIFIED"
+    },
+    {
+      "path": "src/content/2026/index.mdx",
+      "additions": 1,
+      "deletions": 1,
+      "changeType": "MODIFIED"
+    }
+  ],
+  "headRefName": "chenglei_2026",
+  "labels": [],
+  "mergedAt": "2026-06-23T16:11:11Z",
+  "number": 13,
+  "reviewDecision": "",
+  "reviews": [],
+  "state": "MERGED",
+  "title": "Extend submission deadline to June 28, 2026 AOE",
+  "updatedAt": "2026-06-23T16:11:11Z",
+  "url": "https://github.com/lm4sci/lm4sci.github.io/pull/13"
+}
